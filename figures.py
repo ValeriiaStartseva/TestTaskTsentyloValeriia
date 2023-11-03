@@ -18,7 +18,10 @@ class Square(Shape):
         self.name = "Square"
         self.top_right_x = top_right_x
         self.top_right_y = top_right_y
-        self.side = side
+        if side > 0:
+            self.side = side
+        else:
+            raise ValueError("The side of square should be > 0")
 
     def calculate_perimeter(self):
         perimetr = self.side * 4
@@ -33,10 +36,14 @@ class Rectangle(Shape):
     def __init__(self, top_right_x, top_right_y, bottom_left_x, bottom_left_y):
         super().__init__()
         self.name = "Rectangle"
-        self.top_right_x = top_right_x
-        self.top_right_y = top_right_y
-        self.bottom_left_x = bottom_left_x
-        self.bottom_left_y = bottom_left_y
+
+        if top_right_x - bottom_left_x != 0 and top_right_y - bottom_left_y != 0:
+            self.top_right_x = top_right_x
+            self.top_right_y = top_right_y
+            self.bottom_left_x = bottom_left_x
+            self.bottom_left_y = bottom_left_y
+        else:
+            raise ValueError("The coordinates should not be on the same point!")
 
     def calculate_perimeter(self):
         perimetr = 2 * (abs(self.top_right_x - self.bottom_left_x) + abs(self.top_right_y - self.bottom_left_y))
@@ -53,7 +60,10 @@ class Circle(Shape):
         self.name = "Circle"
         self.center_x = center_x
         self.center_y = center_y
-        self.radius = radius
+        if radius > 0:
+            self.radius = radius
+        else:
+            raise ValueError("The radius of circle should be > 0")
 
     def calculate_perimeter(self):
         perimetr = math.pi * self.radius * 2
