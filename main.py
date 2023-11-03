@@ -16,19 +16,13 @@ def calculate():
         top_right_y = int(input_l[3])
         bottom_left_x = int(input_l[5])
         bottom_left_y = int(input_l[6])
-        if top_right_x - bottom_left_x != 0 or top_right_y - bottom_left_y != 0:
-            shape = Rectangle(top_right_x, top_right_y, bottom_left_x, bottom_left_y)
-        else:
-            raise ValueError("The coordinates should not be on the same point!")
+        shape = Rectangle(top_right_x, top_right_y, bottom_left_x, bottom_left_y)
 
     elif shape_type == "Circle":
         center_x = int(input_l[2])
         center_y = int(input_l[3])
         radius = int(input_l[-1])
-        if radius > 0:
-            shape = Circle(center_x, center_y, radius)
-        else:
-            raise ValueError("The radius of circle should be > 0")
+        shape = Circle(center_x, center_y, radius)
 
     else:
         raise ValueError(f"Unknown shape type {shape_type}")

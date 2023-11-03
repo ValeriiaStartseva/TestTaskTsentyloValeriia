@@ -12,7 +12,7 @@ def test_calculate_square(capsys, monkeypatch):
     assert captured.out == expected_output
 
 
-def test_calculate_wrong_square(capsys, monkeypatch):
+def test_calculate_wrong_square(monkeypatch):
     input_data = "Square TopRight 1 1 Side 0"
     monkeypatch.setattr('sys.stdin', io.StringIO(input_data))
     with pytest.raises(ValueError):
@@ -28,6 +28,13 @@ def test_calculate_rectangle(capsys, monkeypatch):
     assert captured.out == expected_output
 
 
+def test_calculate_wrong_rectangle(monkeypatch):
+    input_data = "Rectangle TopRight 1 1 BottomLeft 1 2"
+    monkeypatch.setattr('sys.stdin', io.StringIO(input_data))
+    with pytest.raises(ValueError):
+        calculate()
+
+
 def test_calculate_circle(capsys, monkeypatch):
     input_data = "Circle Center 1 1 Radius 2"
     monkeypatch.setattr('sys.stdin', io.StringIO(input_data))
@@ -35,6 +42,13 @@ def test_calculate_circle(capsys, monkeypatch):
     captured = capsys.readouterr()
     expected_output = f"Please enter your data here:Circle Perimeter 12.57 Area 12.57\n"
     assert captured.out == expected_output
+
+
+def test_calculate_wrong_circle(monkeypatch):
+    input_data = "Circle Center 1 1 Radius 0"
+    monkeypatch.setattr('sys.stdin', io.StringIO(input_data))
+    with pytest.raises(ValueError):
+        calculate()
 
 
 def test_unknown_shape(capsys, monkeypatch):
