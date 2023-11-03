@@ -6,10 +6,11 @@ def calculate():
     shape_type = input_l[0]
 
     if shape_type == "Square":
-        top_right_x = int(input_l[2])
-        top_right_y = int(input_l[3])
-        side = int(input_l[5])
-        shape = Square(top_right_x, top_right_y, side)
+        # top_right_x = int(input_l[2])
+        # top_right_y = int(input_l[3])
+        # side = int(input_l[5])
+        # shape = Square(top_right_x, top_right_y, side)
+        shape = Square(input_l)
 
     elif shape_type == "Rectangle":
         top_right_x = int(input_l[2])

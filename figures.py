@@ -13,13 +13,23 @@ class Shape:
 
 
 class Square(Shape):
-    def __init__(self, top_right_x, top_right_y, side):
+    # def __init__(self, top_right_x, top_right_y, side):
+    #     super().__init__()
+    #     self.name = "Square"
+    #     self.top_right_x = top_right_x
+    #     self.top_right_y = top_right_y
+    #     if side > 0:
+    #         self.side = side
+    #     else:
+    #         raise ValueError("The side of square should be > 0")
+
+    def __init__(self, input_l):
         super().__init__()
         self.name = "Square"
-        self.top_right_x = top_right_x
-        self.top_right_y = top_right_y
-        if side > 0:
-            self.side = side
+        self.top_right_x = int(input_l[2])
+        self.top_right_y = int(input_l[3])
+        if int(input_l[5]) > 0:
+            self.side = int(input_l[5])
         else:
             raise ValueError("The side of square should be > 0")
 
