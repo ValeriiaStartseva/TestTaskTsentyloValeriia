@@ -12,6 +12,13 @@ def test_calculate_square(capsys, monkeypatch):
     assert captured.out == expected_output
 
 
+def test_calculate_wrong_square(capsys, monkeypatch):
+    input_data = "Square TopRight 1 1 Side 0"
+    monkeypatch.setattr('sys.stdin', io.StringIO(input_data))
+    with pytest.raises(ValueError):
+        calculate()
+
+
 def test_calculate_rectangle(capsys, monkeypatch):
     input_data = "Rectangle TopRight 1 1 BottomLeft 2 2"
     monkeypatch.setattr('sys.stdin', io.StringIO(input_data))

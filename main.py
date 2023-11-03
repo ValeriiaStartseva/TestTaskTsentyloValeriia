@@ -9,10 +9,7 @@ def calculate():
         top_right_x = int(input_l[2])
         top_right_y = int(input_l[3])
         side = int(input_l[5])
-        if side > 0:
-            shape = Square(top_right_x, top_right_y, side)
-        else:
-            raise ValueError("The side of square should be > 0")
+        shape = Square(top_right_x, top_right_y, side)
 
     elif shape_type == "Rectangle":
         top_right_x = int(input_l[2])
