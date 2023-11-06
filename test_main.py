@@ -57,7 +57,3 @@ def test_unknown_shape(capsys, monkeypatch):
     with pytest.raises(ValueError) as excinfo:
         calculate()
         assert 'Unknown shape type Triangle' in str(excinfo.value)
-
-
-
-

@@ -43,15 +43,14 @@ class Square(Shape):
 
 
 class Rectangle(Shape):
-    def __init__(self, top_right_x, top_right_y, bottom_left_x, bottom_left_y):
+    def __init__(self, input_l):
         super().__init__()
         self.name = "Rectangle"
-
-        if top_right_x - bottom_left_x != 0 and top_right_y - bottom_left_y != 0:
-            self.top_right_x = top_right_x
-            self.top_right_y = top_right_y
-            self.bottom_left_x = bottom_left_x
-            self.bottom_left_y = bottom_left_y
+        if int(input_l[2]) - int(input_l[5]) != 0 and int(input_l[3]) - int(input_l[6]) != 0:
+            self.top_right_x = int(input_l[2])
+            self.top_right_y = int(input_l[3])
+            self.bottom_left_x = int(input_l[5])
+            self.bottom_left_y = int(input_l[6])
         else:
             raise ValueError("The coordinates should not be on the same point!")
 
@@ -65,13 +64,13 @@ class Rectangle(Shape):
 
 
 class Circle(Shape):
-    def __init__(self, center_x, center_y, radius):
+    def __init__(self, input_l):
         super().__init__()
         self.name = "Circle"
-        self.center_x = center_x
-        self.center_y = center_y
-        if radius > 0:
-            self.radius = radius
+        self.center_x = int(input_l[2])
+        self.center_y = int(input_l[3])
+        if int(input_l[-1]) > 0:
+            self.radius = int(input_l[-1])
         else:
             raise ValueError("The radius of circle should be > 0")
 

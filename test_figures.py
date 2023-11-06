@@ -17,9 +17,11 @@ def test_calculate_wrong_square():
 
 def test_calculate_wrong_rectangle():
     with pytest.raises(ValueError):
-        Rectangle(1, 1, 1, 2)
+        input_l = "Rectangle TopRight 1 1 BottomLeft 1 2"
+        Rectangle(input_l.split())
 
 
 def test_calculate_wrong_circle():
     with pytest.raises(ValueError):
-        Circle(1, 1, 0)
+        input_l = "Circle Center 1 1 Radius 0"
+        Circle(input_l.split())
